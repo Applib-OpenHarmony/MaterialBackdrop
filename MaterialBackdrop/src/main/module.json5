@@ -1,0 +1,11 @@
+{
+  "module": {
+    "name": "MaterialBackdrop",
+    "type": "har",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "uiSyntax": "ets"
+  }
+}
