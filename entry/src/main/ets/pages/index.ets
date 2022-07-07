@@ -25,30 +25,32 @@ struct Index {
   @Builder triggerButtonBackReveal(): any {
     Button({ type: ButtonType.Circle, stateEffect: true }) {
       Image($r('app.media.menu')).width('100%').height('100%')
-    }.width(40).height(40)
+    }.width('40vp').height('40vp')
   }
 
   @Builder triggerButtonBackConceal(): any {
     Button({ type: ButtonType.Circle, stateEffect: true }) {
       Image($r('app.media.cancel')).width('100%').height('100%')
-    }.width(40).height(40)
+    }.width('40vp').height('40vp')
   }
+
   @Builder triggerButtonFrontReveal(): any {
     Button({ type: ButtonType.Circle, stateEffect: true }) {
       Image($r('app.media.down')).width('100%').height('100%')
-    }.width(20).height(20).backgroundColor(Color.White)
+    }.width('20vp').height('20vp').backgroundColor(Color.White)
   }
+
   @Builder triggerButtonFrontConceal(): any {
     Button({ type: ButtonType.Circle, stateEffect: true }) {
       Image($r('app.media.up')).width('100%').height('100%')
-    }.width(20).height(20).backgroundColor(Color.White)
+    }.width('20vp').height('20vp').backgroundColor(Color.White)
   }
 
   @Builder backPage(): any {
     Column() {
       Flex({ alignContent: FlexAlign.SpaceBetween }) {
         Column() {
-          if (this.flag == false) this.triggerButtonBackReveal()
+          if (this.flag == true) this.triggerButtonBackReveal()
           else this.triggerButtonBackConceal()
         }
         .onClick(() => {
@@ -56,7 +58,7 @@ struct Index {
           this.flag = !this.flag
         })
 
-        Text('BackLayer').fontColor(Color.White).fontSize(30).textAlign(TextAlign.Center).margin({ left: '10vp' })
+        Text('BackLayer').fontColor(Color.White).fontSize('30fp').textAlign(TextAlign.Center).margin({ left: '10vp' })
       }.padding('10vp')
 
       Scroll(this.scroller1) {
@@ -91,25 +93,25 @@ struct Index {
     .width('100%')
     .height('100%')
     .backgroundColor("#6200EE")
-
   }
 
   @Builder frontPage(): any{
     Flex({ direction: FlexDirection.Column, alignContent: FlexAlign.SpaceBetween }) {
-      Flex({direction: FlexDirection.Row, alignContent: FlexAlign.End }){
-          Text('SubHeader')
-            .width('80%')
-            .height('100%')
-            .fontSize(30)
+      Flex({ direction: FlexDirection.Row, alignContent: FlexAlign.End }) {
+        Text('SubHeader')
+          .width('80%')
+          .height('100%')
+          .fontSize('30fp')
         Column() {
-          if (this.flag == false) this.triggerButtonFrontReveal()
+          if (this.flag == true) this.triggerButtonFrontReveal()
           else this.triggerButtonFrontConceal()
-        }.width('50%').height('50%').padding({top : '5vp'})
+        }.width('50%').height('50%').padding({ top: '5vp' })
         .onClick(() => {
           this.backdrop1.setBackdropModel1(this.flag)
           this.flag = !this.flag
         })
       }.width('10%').height('5%')
+
       Row() {
         Divider()
           .color("#D0D0D0")
@@ -147,17 +149,13 @@ struct Index {
       }.scrollable(ScrollDirection.Vertical)
       .scrollBar(BarState.On)
       .scrollBarColor(Color.Gray)
-      .scrollBarWidth(10)
+      .scrollBarWidth('5vp')
     }
     .width('100%')
     .border({ width: '2vp' })
     .padding('5vp')
     .height('100%')
     .backgroundColor(Color.White)
-  }
-
-  aboutToAppear() {
-    this.backdrop1.setPosition({ x: 0, y: 70 })
   }
 
   build() {

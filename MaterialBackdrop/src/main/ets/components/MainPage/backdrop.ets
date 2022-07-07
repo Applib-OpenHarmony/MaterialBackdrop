@@ -14,27 +14,24 @@
  */
 import { BackdropModel } from './backdropModel'
 
-export enum BackDropState {
-  Off,
-  On
-}
-
 @Component
 export struct Backdrop {
   @BuilderParam backLayout: () => any
-
   @BuilderParam frontLayout: () => any
-
   @Link obj: BackdropModel
+
+  aboutToAppear() {
+    if (this.obj == null || this.obj == undefined) return
+  }
 
   build() {
     Stack() {
       Column() {
-        this.backLayout
+        this.backLayout()
       }.width('100%').height('100%')
 
-      Column(){
-        this.frontLayout
+      Column() {
+        this.frontLayout()
       }.width('100%').height('100%').position(this.obj.getPosition())
     }.height('100%').width('100%')
   }

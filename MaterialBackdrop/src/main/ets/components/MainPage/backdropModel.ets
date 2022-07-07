@@ -12,36 +12,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+export enum BackDropState {
+  Off,
+  On
+}
+
 export class BackdropModel {
-  //  private buttonContent : Resource = "Reveal back"
-  private position: Position = { x: 0, y: 0 }
+  private position: Position = { x: '0vp', y: '70vp' }
   constructor() {
   }
-  //  setButtonContent(value : boolean){
-  //    if(value == false){
-  ////      this.buttonContent = $r('app.media.menu')
-  //      this.position = { x: 0, y: 90 }
-  //      console.log("Reveal back")
-  //    }
-  //    else{
-  ////      this.buttonContent = "Conceal Back"
-  //      this.position = { x: 0, y: 730 }
-  //      console.log("Conceal back")
-  //    }
-  //  }
-  //  getButtonContent():Resource{
-  //    return this.buttonContent
-  //  }
 
   setBackdropModel1(value: boolean) {
-    if (value == false) {
-      this.setPosition({ x: 0, y: 70 })
-      console.log("Reveal back")
-    }
-    else {
-      this.setPosition({ x: 0, y: 730 })
-      console.log("Conceal back")
-    }
+    if (value != null && value != undefined)
+    this.position = (value == false) ? { x: '0vp', y: '70vp' } : { x: '0vp', y: '730vp' }
   }
 
   setPosition(value: Position) {
