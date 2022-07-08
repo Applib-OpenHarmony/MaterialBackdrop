@@ -22,9 +22,9 @@ export class BackdropModel {
   constructor() {
   }
 
-  setBackdropModel1(value: boolean) {
+  setBackdropModel1(value: BackDropState) {
     if (value != null && value != undefined)
-    this.position = (value == false) ? { x: '0vp', y: '70vp' } : { x: '0vp', y: '730vp' }
+    this.position = (value == BackDropState.Off) ? { x: '0vp', y: '70vp' } : { x: '0vp', y: '730vp' }
   }
 
   setPosition(value: Position) {

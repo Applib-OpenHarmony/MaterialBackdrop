@@ -12,4 +12,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export {  Backdrop, BackdropModel } from './src/main/ets/components/MainPage/backdrop'
+export {  Backdrop, BackdropModel, BackDropState } from './src/main/ets/components/MainPage/backdrop'

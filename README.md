@@ -1,8 +1,7 @@
 # MaterialBackdrop
 
-It is a library in ETS, which s used to apply backdrop functionality.
-It contains several types of models, among which used can choose any model 
-according to the need.
+It is a library in eTS, which s used to apply backdrop functionality, of OpenHarmony.
+It allows user to create their custom UIs and adds backdrop functionality to it.
 
 ## Installation
 
@@ -55,10 +54,20 @@ Backdrop({
         frontLayout: this.frontPage()
       })
 ```
+![Backdrop_off](https://github.com/Applib-OpenHarmony/MaterialBackdrop/blob/main/screenshot/1.png)
+![Backdrop_On](https://github.com/Applib-OpenHarmony/MaterialBackdrop/blob/main/screenshot/2.png)
 
 ## Compatibility
 
 Supports OpenHarmony API version 9 and above
+
+## Code Contribution
+If you find any problems during usage, you can submit an [Issue](https://github.com/Applib-OpenHarmony/MaterialBackdrop/issues) to us. 
+Of course, we also welcome you to send us [PR](https://github.com/Applib-OpenHarmony/MaterialBackdrop/pulls).
+
+## Open Source License
+This project is based on [Apache License 2.0](https://github.com/Applib-OpenHarmony/MaterialBackdrop/blob/main/LICENSE), please enjoy and 
+participate in open source freely.
 
 ### Reference:
 

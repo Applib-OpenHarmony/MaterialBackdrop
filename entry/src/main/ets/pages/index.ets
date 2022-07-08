@@ -12,26 +12,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Backdrop, BackdropModel }  from '@ohos/materialbackdrop'
+import { Backdrop, BackdropModel, BackDropState }  from '@ohos/materialbackdrop'
 
 @Entry
 @Component
 struct Index {
   @State backdrop1: BackdropModel = new BackdropModel()
-  @State flag: boolean = true
+  @State flag: BackDropState = BackDropState.On
   scroller1: Scroller = new Scroller()
   scroller2: Scroller = new Scroller()
 
   @Builder triggerButtonBackReveal(): any {
     Button({ type: ButtonType.Circle, stateEffect: true }) {
       Image($r('app.media.menu')).width('100%').height('100%')
-    }.width('40vp').height('40vp')
+    }.width('24vp').height('24vp')
   }
 
   @Builder triggerButtonBackConceal(): any {
     Button({ type: ButtonType.Circle, stateEffect: true }) {
       Image($r('app.media.cancel')).width('100%').height('100%')
-    }.width('40vp').height('40vp')
+    }.width('24vp').height('24vp')
   }
 
   @Builder triggerButtonFrontReveal(): any {
@@ -50,41 +50,41 @@ struct Index {
     Column() {
       Flex({ alignContent: FlexAlign.SpaceBetween }) {
         Column() {
-          if (this.flag == true) this.triggerButtonBackReveal()
+          if (this.flag == BackDropState.On) this.triggerButtonBackReveal()
           else this.triggerButtonBackConceal()
         }
         .onClick(() => {
           this.backdrop1.setBackdropModel1(this.flag)
-          this.flag = !this.flag
+          this.flag = (this.flag == BackDropState.Off) ?BackDropState.On : BackDropState.Off
         })
 
-        Text('BackLayer').fontColor(Color.White).fontSize('30fp').textAlign(TextAlign.Center).margin({ left: '10vp' })
-      }.padding('10vp')
+        Text('BackLayer').fontColor(Color.White).fontSize('24fp').textAlign(TextAlign.Center).padding({ left: '32vp' })
+      }.padding({left:'16vp',right:'16vp'}).height('24vp').margin({top:'16vp',bottom:'16vp'})
 
       Scroll(this.scroller1) {
         Column() {
-          Text('Living Room')
-            .fontColor('#ffffff')
-            .padding({ left: '10vp' })
-            .width('100%')
-            .height('5%')
-            .fontSize('25vp')
-            .textAlign(TextAlign.Start)
-            .backgroundColor('#6200EE')
+            Text('Living Room')
+              .fontColor('#ffffff')
+              .padding({ left: '32vp' })
+              .width('100%')
+              .height('40vp')
+              .fontSize('15vp')
+              .textAlign(TextAlign.Start)
+              .backgroundColor('#6200EE')
           Text('Bed Room')
             .fontColor('#ffffff')
-            .padding({ left: '10vp' })
+            .padding({ left: '32vp' })
             .width('100%')
-            .height('5%')
-            .fontSize('25vp')
+            .height('40vp')
+            .fontSize('15vp')
             .textAlign(TextAlign.Start)
             .backgroundColor('#6200EE')
           Text('Kitchen')
             .fontColor('#ffffff')
-            .padding({ left: '10vp' })
+            .padding({ left: '32vp' })
             .width('100%')
-            .height('5%')
-            .fontSize('25vp')
+            .height('40vp')
+            .fontSize('15vp')
             .textAlign(TextAlign.Start)
             .backgroundColor('#6200EE')
         }.width('100%')
@@ -98,17 +98,19 @@ struct Index {
   @Builder frontPage(): any{
     Flex({ direction: FlexDirection.Column, alignContent: FlexAlign.SpaceBetween }) {
       Flex({ direction: FlexDirection.Row, alignContent: FlexAlign.End }) {
-        Text('SubHeader')
-          .width('80%')
+        Text('Subtitle')
+          .alignSelf(ItemAlign.Baseline)
+          .padding({left: '16vp'})
+          .width('90%')
           .height('100%')
-          .fontSize('30fp')
+          .fontSize('20fp')
         Column() {
-          if (this.flag == true) this.triggerButtonFrontReveal()
+          if (this.flag == BackDropState.On) this.triggerButtonFrontReveal()
           else this.triggerButtonFrontConceal()
-        }.width('50%').height('50%').padding({ top: '5vp' })
+        }.padding({ top: '7vp' , right: '16vp'}).alignItems(HorizontalAlign.End)
         .onClick(() => {
           this.backdrop1.setBackdropModel1(this.flag)
-          this.flag = !this.flag
+          this.flag = (this.flag == BackDropState.Off) ?BackDropState.On : BackDropState.Off
         })
       }.width('10%').height('5%')
 
@@ -152,7 +154,7 @@ struct Index {
       .scrollBarWidth('5vp')
     }
     .width('100%')
-    .border({ width: '2vp' })
+    .borderRadius('8vp')
     .padding('5vp')
     .height('100%')
     .backgroundColor(Color.White)

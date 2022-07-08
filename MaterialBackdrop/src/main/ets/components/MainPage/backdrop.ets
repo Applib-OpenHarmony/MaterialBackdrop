@@ -37,4 +37,4 @@ export struct Backdrop {
   }
 }
 
-export { BackdropModel } from './backdropModel'
+export { BackdropModel, BackDropState } from './backdropModel'
