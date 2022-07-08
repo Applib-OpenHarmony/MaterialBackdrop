@@ -154,7 +154,7 @@ struct Index {
       .scrollBarWidth('5vp')
     }
     .width('100%')
-    .borderRadius('8vp')
+    .borderRadius('16vp')
     .padding('5vp')
     .height('100%')
     .backgroundColor(Color.White)
