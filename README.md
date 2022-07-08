@@ -54,10 +54,10 @@ Backdrop({
         frontLayout: this.frontPage()
       })
 ```
-![Backdrop_gif](https://github.com/BLakra01/MaterialBackdrop/blob/main/screenshot/3.gif)
+![Backdrop_gif](https://github.com/BLakra01/MaterialBackdrop/blob/main/screenshots/3.gif)
 
 ![Backdrop_off](https://github.com/BLakra01/MaterialBackdrop/blob/main/screenshots/1.png)
-![Backdrop_On](https://github.com/BLakra01/MaterialBackdrop/blob/main/screenshot/2.png)
+![Backdrop_On](https://github.com/BLakra01/MaterialBackdrop/blob/main/screenshots/2.png)
 
 ## Compatibility
 
