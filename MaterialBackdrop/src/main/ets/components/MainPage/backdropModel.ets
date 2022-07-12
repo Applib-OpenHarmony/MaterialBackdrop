@@ -17,22 +17,51 @@ export enum BackDropState {
   On
 }
 
+export enum BackdropType {
+  Model1,
+  Model2
+}
+
 export class BackdropModel {
+  private backdropType = BackdropType.Model1
   private position: Position = { x: '0vp', y: '70vp' }
-  constructor() {
+  private backContentHeight: Length = '94%'
+  private frontOpacity: number | Resource = 1
+  constructor(value: BackdropType) {
+    if (value != null && value != undefined) this.backdropType = value
   }
 
-  setBackdropModel1(value: BackDropState) {
-    if (value != null && value != undefined)
-    this.position = (value == BackDropState.Off) ? { x: '0vp', y: '70vp' } : { x: '0vp', y: '730vp' }
+  triggerBackdrop(value: BackDropState) {
+    if (this.backdropType == BackdropType.Model1) {
+      this.position = (value == BackDropState.Off) ? { x: '0vp', y: this.backContentHeight } : { x: '0vp', y: '70vp' }
+    }
+    if (this.backdropType == BackdropType.Model2) {
+      this.position = (value == BackDropState.Off) ? { x: '0vp', y: this.backContentHeight } : { x: '0vp', y: '70vp' }
+      this.frontOpacity = (value == BackDropState.Off) ? 0.4 : 1
+    }
   }
 
   setPosition(value: Position) {
-    if (value != null && value != undefined)
-    this.position = value
+    if (value != null && value != undefined) this.position = value
   }
 
   getPosition(): Position{
     return this.position
+  }
+
+  setBackContentHeight(value: Length) {
+    if (value != null && value != undefined ) this.backContentHeight = value
+  }
+
+  getBackContentHeight(): Length{
+    return this.backContentHeight
+  }
+
+  setFrontOpacity(value: number | Resource) {
+    if (value != null && value != undefined) this.frontOpacity = value
+  }
+
+  getFrontOpacity(): number | Resource{
+    return this.frontOpacity
   }
 }

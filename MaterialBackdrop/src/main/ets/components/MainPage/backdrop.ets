@@ -25,6 +25,7 @@ export struct Backdrop {
   }
 
   build() {
+    if ((this.backLayout != null && this.backLayout != undefined) && (this.frontLayout != null && this.frontLayout != undefined))
     Stack() {
       Column() {
         this.backLayout()
@@ -37,4 +38,4 @@ export struct Backdrop {
   }
 }
 
-export { BackdropModel, BackDropState } from './backdropModel'
+export { BackdropModel, BackDropState, BackdropType } from './backdropModel'
